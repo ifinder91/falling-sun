@@ -3,43 +3,490 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Falling Sun – Privacy Policy</title>
     <style>
+        :root {
+            --sun: #f39c12;
+            --sun2: #e74c3c;
+            --bg: #0d0d1a;
+            --card: #16213e;
+            --card2: #1a1a35;
+            --text: #ffffff;
+            --muted: #aaaacc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .lang-switcher {
+            position: fixed;
+            top: 16px; right: 16px;
+            z-index: 1000;
+        }
+        .lang-btn {
+            background: rgba(243,156,18,0.15);
+            border: 1.5px solid var(--sun);
+            color: var(--sun);
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            backdrop-filter: blur(8px);
+            transition: background 0.2s;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .lang-btn:hover { background: rgba(243,156,18,0.3); }
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: var(--card);
+            border: 1px solid rgba(243,156,18,0.3);
+            border-radius: 14px;
+            overflow: hidden;
+            min-width: 160px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+        .lang-switcher.open .lang-dropdown { display: block; }
+        .lang-option {
+            padding: 12px 18px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.15s;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .lang-option:hover { background: rgba(243,156,18,0.15); }
+        .lang-option.active { color: var(--sun); font-weight: 700; }
+        .lang-flag { font-size: 18px; }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 50px;
+            background: linear-gradient(180deg, #1a0a00 0%, #2d1b00 40%, var(--bg) 100%);
+        }
+        header h1 {
+            font-size: clamp(1.8em, 5vw, 2.8em);
+            font-weight: 900;
+            background: linear-gradient(135deg, #f39c12, #e74c3c, #f1c40f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        header p { color: var(--muted); margin-top: 10px; font-size: 0.95em; }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 20px;
+            color: var(--sun);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 1; }
+
+        .container {
+            max-width: 820px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 20px 20px 60px;
         }
-        h1, h2 {
-            color: #000;
+
+        .section {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 18px;
+            padding: 28px 28px 24px;
+            margin-bottom: 20px;
         }
-        p {
-            margin-bottom: 15px;
+        .section:hover { border-color: rgba(243,156,18,0.2); }
+
+        h2 {
+            color: var(--sun);
+            font-size: 1.15em;
+            font-weight: 800;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2 .icon { font-size: 1.2em; }
+
+        p { color: #ccc; margin-bottom: 12px; font-size: 0.95em; }
+        p:last-child { margin-bottom: 0; }
+        ul { color: #ccc; font-size: 0.95em; padding-left: 20px; margin-bottom: 12px; }
+        ul li { margin-bottom: 6px; }
+        a { color: var(--sun); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .table-wrap { overflow-x: auto; margin: 12px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.88em; color: #ccc; }
+        th { background: rgba(243,156,18,0.1); color: var(--sun); text-align: left; padding: 10px 14px; font-weight: 700; }
+        td { padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        tr:last-child td { border-bottom: none; }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #555;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        footer a { color: #777; }
+        footer a:hover { color: #aaa; }
+
+        @media (max-width: 500px) {
+            .section { padding: 20px 16px; }
+            header { padding: 70px 16px 40px; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Privacy Policy</h1>
-    <p><strong>Last updated:</strong> March 2026</p>
+<div class="lang-switcher" id="langSwitcher">
+    <button class="lang-btn" onclick="toggleLang()">
+        <span id="currentFlag">🇬🇧</span>
+        <span id="currentLang">EN</span>
+        <span>▾</span>
+    </button>
+    <div class="lang-dropdown">
+        <div class="lang-option" onclick="setLang('en')"><span class="lang-flag">🇬🇧</span> English</div>
+        <div class="lang-option" onclick="setLang('de')"><span class="lang-flag">🇩🇪</span> Deutsch</div>
+        <div class="lang-option" onclick="setLang('es')"><span class="lang-flag">🇪🇸</span> Español</div>
+        <div class="lang-option" onclick="setLang('zh-Hans')"><span class="lang-flag">🇨🇳</span> 简体中文</div>
+        <div class="lang-option" onclick="setLang('zh-Hant')"><span class="lang-flag">🇹🇼</span> 繁體中文</div>
+        <div class="lang-option" onclick="setLang('ja')"><span class="lang-flag">🇯🇵</span> 日本語</div>
+        <div class="lang-option" onclick="setLang('ko')"><span class="lang-flag">🇰🇷</span> 한국어</div>
+    </div>
+</div>
 
-    <h2>1. Information We Do Not Collect</h2>
-    <p>We highly respect your privacy. Our application does <strong>not</strong> collect, store, or share any personal data or personally identifiable information (PII). You can use the app completely anonymously.</p>
+<header>
+    <h1 data-i18n="title">Privacy Policy</h1>
+    <p data-i18n="updated">Last updated: April 2026</p>
+    <a href="index.html" class="back-link">← <span data-i18n="back">Back to Falling Sun</span></a>
+</header>
 
-    <h2>2. Crash Reports and Stability Analytics</h2>
-    <p>To ensure the best possible user experience, we monitor the app's stability. We only collect anonymous crash reports and performance data if the app encounters an error or crashes. This data does not contain any personal information, names, email addresses, or location data. It is used strictly for technical purposes to identify bugs, fix crashes, and improve the app's performance.</p>
+<div class="container" id="policyContent"></div>
 
-    <h2>3. Third-Party Services</h2>
-    <p>Since we do not collect any personal data, we do not sell, trade, or transfer any user data to outside parties. Anonymous crash data may be processed by standard analytics platforms (such as Apple's opt-in crash reporting) solely for the technical purposes mentioned above.</p>
+<footer>
+    <p>&copy; 2026 Falling Sun · <a href="index.html">fallingsun.app</a> · <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>
+</footer>
 
-    <h2>4. Changes to This Privacy Policy</h2>
-    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted.</p>
+<script>
+const LANGS = {
+    en: {
+        flag: '🇬🇧', label: 'EN',
+        title: 'Privacy Policy',
+        updated: 'Last updated: April 2026',
+        back: 'Back to Falling Sun',
+        sections: [
+            {
+                icon: '👤', title: '1. Data Controller',
+                content: `<p>The data controller responsible for the processing of personal data in connection with the "Falling Sun" app is:</p><p><strong>Evren Agsakal</strong><br>Contact: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>`
+            },
+            {
+                icon: '📊', title: '2. Data We Collect',
+                content: `<p>We are committed to transparency. While we do <strong>not</strong> collect any personal information (such as your name, email address, or precise location), the app does use third-party SDKs that collect limited, anonymous technical data:</p>
+                <div class="table-wrap"><table>
+                    <tr><th>Data Type</th><th>Source</th><th>Purpose</th></tr>
+                    <tr><td>Device model & OS version</td><td>Firebase Analytics & Crashlytics</td><td>App compatibility & stability</td></tr>
+                    <tr><td>Country & language</td><td>Firebase Analytics</td><td>Understanding user regions</td></tr>
+                    <tr><td>App version</td><td>Firebase Analytics & Crashlytics</td><td>Version-specific analysis</td></tr>
+                    <tr><td>Session duration & count</td><td>Firebase Analytics</td><td>Understanding gameplay patterns</td></tr>
+                    <tr><td>In-app events (see §3)</td><td>Firebase Analytics</td><td>Feature usage analysis</td></tr>
+                    <tr><td>Crash logs & stack traces</td><td>Firebase Crashlytics</td><td>Bug fixing & stability</td></tr>
+                    <tr><td>Anonymous device instance ID</td><td>Firebase</td><td>Deduplicating analytics</td></tr>
+                </table></div>
+                <p>No data is linked to your real identity. We do <strong>not</strong> collect names, email addresses, phone numbers, precise GPS location, or payment details.</p>`
+            },
+            {
+                icon: '🎮', title: '3. Firebase Analytics – Custom Events',
+                content: `<p>We log the following anonymous gameplay events via Firebase Analytics:</p>
+                <ul>
+                    <li><strong>game_start</strong> – When the Play button is tapped</li>
+                    <li><strong>play_again</strong> – When the Play Again button is tapped after game over</li>
+                    <li><strong>shop_opened</strong> – When the in-game shop is opened</li>
+                    <li><strong>item_purchased</strong> – Which power-up was bought with in-game coins (not real money)</li>
+                    <li><strong>rescue_used</strong> – When a rescue item (parachute/extra life) is activated</li>
+                    <li><strong>rescue_declined</strong> – When the player chooses to give up</li>
+                </ul>
+                <p>These events contain no personal data. They help us understand which features players enjoy most.</p>`
+            },
+            {
+                icon: '🔥', title: '4. Firebase Crashlytics',
+                content: `<p>We use <strong>Firebase Crashlytics</strong> (provided by Google LLC) to detect and fix crashes. When the app crashes, Crashlytics automatically sends:</p>
+                <ul>
+                    <li>Stack trace (the technical sequence of events leading to the crash)</li>
+                    <li>Device state at the time of the crash</li>
+                    <li>Device model and iOS version</li>
+                    <li>App version</li>
+                </ul>
+                <p>This data contains no personal information and is used solely to improve app stability. Crash data is retained by Google for <strong>90 days</strong>.</p>`
+            },
+            {
+                icon: '🛒', title: '5. In-App Purchases',
+                content: `<p>Falling Sun contains an in-app shop where power-ups can be purchased using in-game coins. All payment processing is handled entirely by <strong>Apple Inc.</strong> via StoreKit 2. We never see or store your payment details or credit card information.</p>
+                <p>When a purchase occurs, only an anonymous event (<code>item_purchased</code>) with item type and coin cost is logged to Firebase Analytics — no payment data.</p>
+                <p>Apple's privacy policy: <a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></p>`
+            },
+            {
+                icon: '🌐', title: '6. Third-Party Services & Data Processors',
+                content: `<div class="table-wrap"><table>
+                    <tr><th>Service</th><th>Provider</th><th>Purpose</th><th>Privacy Policy</th></tr>
+                    <tr><td>Firebase Analytics</td><td>Google LLC</td><td>Anonymous usage analytics</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com</a></td></tr>
+                    <tr><td>Firebase Crashlytics</td><td>Google LLC</td><td>Crash reporting</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com</a></td></tr>
+                    <tr><td>App Store / StoreKit</td><td>Apple Inc.</td><td>In-app purchase processing</td><td><a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></td></tr>
+                </table></div>
+                <p>Firebase services are operated by Google LLC. Data may be processed on servers in the United States. Google uses Standard Contractual Clauses (SCCs) as the legal safeguard for international data transfers under GDPR.</p>`
+            },
+            {
+                icon: '🇪🇺', title: '7. GDPR – Rights of EU/EEA Users',
+                content: `<p>If you are located in the EU or EEA, you have the following rights under GDPR:</p>
+                <ul>
+                    <li><strong>Right of Access (Art. 15)</strong> – Request a copy of data we hold</li>
+                    <li><strong>Right to Rectification (Art. 16)</strong> – Request correction of inaccurate data</li>
+                    <li><strong>Right to Erasure (Art. 17)</strong> – Request deletion ("right to be forgotten")</li>
+                    <li><strong>Right to Restriction (Art. 18)</strong> – Request limited processing</li>
+                    <li><strong>Right to Portability (Art. 20)</strong> – Receive your data in a portable format</li>
+                    <li><strong>Right to Object (Art. 21)</strong> – Object to processing based on legitimate interests</li>
+                    <li><strong>Right to Lodge a Complaint (Art. 77)</strong> – File a complaint with your supervisory authority (Germany: <a href="https://www.bfdi.bund.de" target="_blank">bfdi.bund.de</a>)</li>
+                </ul>
+                <p><strong>Legal basis:</strong> We process anonymous analytics data under <em>Legitimate Interests</em> (Art. 6(1)(f) GDPR). To exercise your rights, contact: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>`
+            },
+            {
+                icon: '⏱️', title: '8. Data Retention',
+                content: `<div class="table-wrap"><table>
+                    <tr><th>Data Type</th><th>Retention Period</th><th>Managed By</th></tr>
+                    <tr><td>Firebase Analytics events</td><td>Up to 14 months</td><td>Google LLC</td></tr>
+                    <tr><td>Firebase app instance ID</td><td>Until app uninstall</td><td>Google LLC</td></tr>
+                    <tr><td>Crashlytics crash reports</td><td>90 days</td><td>Google LLC</td></tr>
+                    <tr><td>Purchase receipts</td><td>Managed by Apple</td><td>Apple Inc.</td></tr>
+                </table></div>
+                <p>You can reset your Firebase Analytics identifier by reinstalling the app or resetting your device's advertising identifier in iOS Settings.</p>`
+            },
+            {
+                icon: '🧒', title: "9. Children's Privacy",
+                content: `<p>Falling Sun is <strong>not directed at children under the age of 13</strong>. We do not knowingly collect personal data from children under 13. If you are a parent or guardian and believe your child has provided personal data, please contact us at <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>.</p>`
+            },
+            {
+                icon: '🚫', title: '10. Opting Out of Analytics',
+                content: `<ul>
+                    <li><strong>iOS Settings:</strong> Settings → Privacy & Security → Tracking → disable for Falling Sun</li>
+                    <li><strong>Reset Advertising ID:</strong> Settings → Privacy & Security → Apple Advertising → Reset Advertising Identifier</li>
+                    <li><strong>Google Opt-Out:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a></li>
+                    <li><strong>Data Deletion Request:</strong> <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></li>
+                </ul>`
+            },
+            {
+                icon: '📝', title: '11. Changes to This Policy',
+                content: `<p>We may update this Privacy Policy from time to time. Changes are effective immediately after posting. Continued use of the app constitutes acceptance of the updated policy.</p>`
+            },
+            {
+                icon: '✉️', title: '12. Contact',
+                content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>`
+            }
+        ]
+    },
+    de: {
+        flag: '🇩🇪', label: 'DE',
+        title: 'Datenschutzerklärung',
+        updated: 'Zuletzt aktualisiert: April 2026',
+        back: 'Zurück zu Falling Sun',
+        sections: [
+            { icon: '👤', title: '1. Verantwortlicher', content: `<p><strong>Evren Agsakal</strong><br>Kontakt: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '📊', title: '2. Erhobene Daten', content: `<p>Wir erheben keine persönlichen Daten (Name, E-Mail, Standort). Die App nutzt Drittanbieter-SDKs für anonyme technische Daten:</p>
+                <div class="table-wrap"><table>
+                    <tr><th>Datentyp</th><th>Quelle</th><th>Zweck</th></tr>
+                    <tr><td>Gerätemodell & iOS-Version</td><td>Firebase Analytics & Crashlytics</td><td>Kompatibilität & Stabilität</td></tr>
+                    <tr><td>Land & Sprache</td><td>Firebase Analytics</td><td>Regionale Nutzungsanalyse</td></tr>
+                    <tr><td>App-Version</td><td>Firebase</td><td>Versionsanalyse</td></tr>
+                    <tr><td>Sitzungsdauer & -anzahl</td><td>Firebase Analytics</td><td>Spielmuster verstehen</td></tr>
+                    <tr><td>In-App-Events (s. §3)</td><td>Firebase Analytics</td><td>Feature-Nutzungsanalyse</td></tr>
+                    <tr><td>Crash-Logs & Stack-Traces</td><td>Firebase Crashlytics</td><td>Fehlerbehebung</td></tr>
+                    <tr><td>Anonyme Geräte-Instanz-ID</td><td>Firebase</td><td>Deduplizierung</td></tr>
+                </table></div>` },
+            { icon: '🎮', title: '3. Firebase Analytics – Spielereignisse', content: `<p>Wir protokollieren folgende anonyme Ereignisse:</p><ul><li><strong>game_start</strong> – Spielstart</li><li><strong>play_again</strong> – Erneut spielen</li><li><strong>shop_opened</strong> – Shop geöffnet</li><li><strong>item_purchased</strong> – Power-Up gekauft</li><li><strong>rescue_used</strong> – Rettungsitem eingesetzt</li><li><strong>rescue_declined</strong> – Aufgegeben</li></ul>` },
+            { icon: '🔥', title: '4. Firebase Crashlytics', content: `<p>Wir verwenden <strong>Firebase Crashlytics</strong> (Google LLC). Bei einem Absturz werden gesendet: Stack-Trace, Gerätestatus, Gerätemodell, iOS-Version, App-Version. Keine personenbezogenen Daten. Aufbewahrung: <strong>90 Tage</strong>.</p>` },
+            { icon: '🛒', title: '5. In-App-Käufe', content: `<p>Alle Zahlungen werden von <strong>Apple Inc.</strong> über StoreKit 2 verarbeitet. Wir speichern keine Zahlungsdaten. Beim Kauf wird nur ein anonymes Ereignis an Firebase gesendet.<br><a href="https://www.apple.com/de/legal/privacy/" target="_blank">apple.com/legal/privacy</a></p>` },
+            { icon: '🌐', title: '6. Drittanbieter', content: `<div class="table-wrap"><table>
+                <tr><th>Dienst</th><th>Anbieter</th><th>Zweck</th><th>Datenschutz</th></tr>
+                <tr><td>Firebase Analytics</td><td>Google LLC</td><td>Nutzungsanalyse</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com</a></td></tr>
+                <tr><td>Firebase Crashlytics</td><td>Google LLC</td><td>Absturzberichte</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com</a></td></tr>
+                <tr><td>App Store / StoreKit</td><td>Apple Inc.</td><td>Kaufabwicklung</td><td><a href="https://www.apple.com/de/legal/privacy/" target="_blank">apple.com/legal/privacy</a></td></tr>
+            </table></div>
+            <p>Google verwendet Standardvertragsklauseln (SCC) für internationale Datenübermittlungen gemäß DSGVO.</p>` },
+            { icon: '🇪🇺', title: '7. DSGVO – Ihre Rechte', content: `<ul>
+                <li><strong>Auskunftsrecht (Art. 15)</strong></li>
+                <li><strong>Berichtigungsrecht (Art. 16)</strong></li>
+                <li><strong>Recht auf Löschung (Art. 17)</strong></li>
+                <li><strong>Einschränkungsrecht (Art. 18)</strong></li>
+                <li><strong>Datenübertragbarkeit (Art. 20)</strong></li>
+                <li><strong>Widerspruchsrecht (Art. 21)</strong></li>
+                <li><strong>Beschwerderecht (Art. 77)</strong> – <a href="https://www.bfdi.bund.de" target="_blank">bfdi.bund.de</a></li>
+            </ul>
+            <p><strong>Rechtsgrundlage:</strong> Berechtigte Interessen (Art. 6 Abs. 1 lit. f DSGVO). Kontakt: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '⏱️', title: '8. Datenspeicherung', content: `<div class="table-wrap"><table>
+                <tr><th>Datentyp</th><th>Speicherdauer</th><th>Verwaltet von</th></tr>
+                <tr><td>Firebase Analytics-Ereignisse</td><td>Bis zu 14 Monate</td><td>Google LLC</td></tr>
+                <tr><td>Firebase Instanz-ID</td><td>Bis zur Deinstallation</td><td>Google LLC</td></tr>
+                <tr><td>Crashlytics-Berichte</td><td>90 Tage</td><td>Google LLC</td></tr>
+                <tr><td>Kaufbelege</td><td>Von Apple verwaltet</td><td>Apple Inc.</td></tr>
+            </table></div>` },
+            { icon: '🧒', title: '9. Kinderdatenschutz', content: `<p>Falling Sun richtet sich <strong>nicht an Kinder unter 13 Jahren</strong>. Kontakt bei Fragen: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '🚫', title: '10. Widerspruch & Löschung', content: `<ul>
+                <li>Einstellungen → Datenschutz → Tracking → Deaktivieren für Falling Sun</li>
+                <li>Werbe-ID zurücksetzen: Einstellungen → Datenschutz → Apple-Werbung</li>
+                <li>Datenlöschung: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></li>
+            </ul>` },
+            { icon: '📝', title: '11. Änderungen', content: `<p>Wir aktualisieren diese Erklärung gelegentlich. Änderungen werden durch Aktualisierung des Datums oben bekannt gegeben.</p>` },
+            { icon: '✉️', title: '12. Kontakt', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` }
+        ]
+    },
+    es: {
+        flag: '🇪🇸', label: 'ES',
+        title: 'Política de Privacidad',
+        updated: 'Última actualización: Abril 2026',
+        back: 'Volver a Falling Sun',
+        sections: [
+            { icon: '👤', title: '1. Responsable', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '📊', title: '2. Datos Recopilados', content: `<p>No recopilamos información personal. Los SDKs de terceros recopilan datos técnicos anónimos: modelo de dispositivo, versión de iOS, país, idioma, versión de app, duración de sesión y registros de fallos.</p>` },
+            { icon: '🎮', title: '3. Eventos de Firebase Analytics', content: `<p>Registramos: <strong>game_start</strong>, <strong>play_again</strong>, <strong>shop_opened</strong>, <strong>item_purchased</strong>, <strong>rescue_used</strong>, <strong>rescue_declined</strong>. Sin datos personales.</p>` },
+            { icon: '🔥', title: '4. Firebase Crashlytics', content: `<p><strong>Firebase Crashlytics</strong> (Google LLC) detecta fallos. Recopila: stack trace, estado del dispositivo, modelo y versión de iOS. Retención: <strong>90 días</strong>.</p>` },
+            { icon: '🛒', title: '5. Compras In-App', content: `<p>Pagos procesados por <strong>Apple Inc.</strong> vía StoreKit 2. No almacenamos datos de pago.<br><a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></p>` },
+            { icon: '🌐', title: '6. Terceros', content: `<p>Firebase Analytics y Crashlytics: Google LLC. Datos pueden procesarse en EE.UU. con Cláusulas Contractuales Estándar.<br><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>` },
+            { icon: '⏱️', title: '7. Retención de Datos', content: `<p>Eventos Firebase: hasta 14 meses. Crashlytics: 90 días. ID instancia Firebase: hasta desinstalación.</p>` },
+            { icon: '🧒', title: '8. Menores', content: `<p>No dirigida a menores de 13 años. Contacto: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '🚫', title: '9. Exclusión', content: `<p>Ajustes → Privacidad → Seguimiento. Solicitud de eliminación: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '📝', title: '10. Cambios', content: `<p>Actualizamos esta política ocasionalmente. Los cambios son efectivos al publicarse.</p>` },
+            { icon: '✉️', title: '11. Contacto', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` }
+        ]
+    },
+    'zh-Hans': {
+        flag: '🇨🇳', label: '中文',
+        title: '隐私政策',
+        updated: '最后更新：2026年4月',
+        back: '返回 Falling Sun',
+        sections: [
+            { icon: '👤', title: '1. 数据控制者', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '📊', title: '2. 收集的数据', content: `<p>我们不收集个人信息。第三方SDK收集匿名技术数据：设备型号、iOS版本、国家/地区、语言、应用版本、会话时长及崩溃日志。</p>` },
+            { icon: '🎮', title: '3. Firebase Analytics 事件', content: `<p>记录以下匿名事件：<strong>game_start</strong>、<strong>play_again</strong>、<strong>shop_opened</strong>、<strong>item_purchased</strong>、<strong>rescue_used</strong>、<strong>rescue_declined</strong>。不含个人数据。</p>` },
+            { icon: '🔥', title: '4. Firebase Crashlytics', content: `<p><strong>Firebase Crashlytics</strong>（Google LLC）用于崩溃检测。收集：堆栈跟踪、设备状态、型号、iOS版本。保留 <strong>90天</strong>。</p>` },
+            { icon: '🛒', title: '5. 应用内购买', content: `<p>支付由 <strong>Apple Inc.</strong> 处理。我们不存储支付数据。<br><a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></p>` },
+            { icon: '🌐', title: '6. 第三方服务', content: `<p>Firebase由Google LLC运营，数据可能在美国处理，使用标准合同条款（SCC）保障。<br><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>` },
+            { icon: '⏱️', title: '7. 数据保留', content: `<p>Firebase Analytics事件：最长14个月。Crashlytics：90天。Firebase实例ID：直至卸载。</p>` },
+            { icon: '🧒', title: '8. 儿童隐私', content: `<p>不面向13岁以下儿童。联系：<a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '🚫', title: '9. 退出', content: `<p>设置 → 隐私与安全 → 追踪中关闭。数据删除请发邮件至 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>。</p>` },
+            { icon: '📝', title: '10. 政策变更', content: `<p>我们可能更新本政策，更改在发布后立即生效。</p>` },
+            { icon: '✉️', title: '11. 联系', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` }
+        ]
+    },
+    'zh-Hant': {
+        flag: '🇹🇼', label: '繁中',
+        title: '隱私權政策',
+        updated: '最後更新：2026年4月',
+        back: '返回 Falling Sun',
+        sections: [
+            { icon: '👤', title: '1. 資料控制者', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '📊', title: '2. 收集的資料', content: `<p>我們不收集個人資訊。第三方SDK收集匿名技術資料：裝置型號、iOS版本、國家/地區、語言、應用程式版本、工作階段時長及當機日誌。</p>` },
+            { icon: '🎮', title: '3. Firebase Analytics 事件', content: `<p>記錄以下匿名事件：<strong>game_start</strong>、<strong>play_again</strong>、<strong>shop_opened</strong>、<strong>item_purchased</strong>、<strong>rescue_used</strong>、<strong>rescue_declined</strong>。不含個人資料。</p>` },
+            { icon: '🔥', title: '4. Firebase Crashlytics', content: `<p><strong>Firebase Crashlytics</strong>（Google LLC）用於當機偵測。收集：堆疊追蹤、裝置狀態、型號、iOS版本。保留 <strong>90天</strong>。</p>` },
+            { icon: '🛒', title: '5. App 內購買', content: `<p>付款由 <strong>Apple Inc.</strong> 處理。我們不儲存付款資料。<br><a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></p>` },
+            { icon: '🌐', title: '6. 第三方服務', content: `<p>Firebase由Google LLC營運，資料可能在美國處理，使用標準合約條款保障。<br><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>` },
+            { icon: '⏱️', title: '7. 資料保留', content: `<p>Firebase Analytics事件：最長14個月。Crashlytics：90天。Firebase實例ID：直至解除安裝。</p>` },
+            { icon: '🧒', title: '8. 兒童隱私', content: `<p>不面向13歲以下兒童。聯絡：<a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '🚫', title: '9. 退出', content: `<p>設定 → 隱私權 → 追蹤中關閉。資料刪除請發信至 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>。</p>` },
+            { icon: '📝', title: '10. 政策變更', content: `<p>我們可能更新本政策，更改在發布後立即生效。</p>` },
+            { icon: '✉️', title: '11. 聯絡', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` }
+        ]
+    },
+    ja: {
+        flag: '🇯🇵', label: '日本語',
+        title: 'プライバシーポリシー',
+        updated: '最終更新：2026年4月',
+        back: 'Falling Sun に戻る',
+        sections: [
+            { icon: '👤', title: '1. データ管理者', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '📊', title: '2. 収集するデータ', content: `<p>個人情報は収集しません。サードパーティSDKにより匿名技術データが収集されます：デバイスモデル、iOSバージョン、国、言語、アプリバージョン、セッション情報、クラッシュログ。</p>` },
+            { icon: '🎮', title: '3. Firebase Analytics イベント', content: `<p>匿名ゲームイベントを記録：<strong>game_start</strong>、<strong>play_again</strong>、<strong>shop_opened</strong>、<strong>item_purchased</strong>、<strong>rescue_used</strong>、<strong>rescue_declined</strong>。個人データなし。</p>` },
+            { icon: '🔥', title: '4. Firebase Crashlytics', content: `<p><strong>Firebase Crashlytics</strong>（Google LLC）でクラッシュを検出。収集：スタックトレース、デバイス状態、モデル、iOSバージョン。保持期間：<strong>90日間</strong>。</p>` },
+            { icon: '🛒', title: '5. アプリ内購入', content: `<p>支払いは <strong>Apple Inc.</strong> のStoreKit 2により処理。支払いデータは保存しません。<br><a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></p>` },
+            { icon: '🌐', title: '6. サードパーティ', content: `<p>FirebaseはGoogle LLC運営。データは米国で処理される場合があります（標準契約条項使用）。<br><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>` },
+            { icon: '⏱️', title: '7. データ保持期間', content: `<p>Firebase Analyticsイベント：最大14ヶ月。Crashlyticsレポート：90日間。インスタンスID：アンインストールまで。</p>` },
+            { icon: '🧒', title: '8. 子どものプライバシー', content: `<p>13歳未満を対象としません。ご連絡：<a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '🚫', title: '9. オプトアウト', content: `<p>設定 → プライバシー → トラッキングから無効化可能。削除リクエスト：<a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '📝', title: '10. ポリシー変更', content: `<p>本ポリシーは随時更新されます。変更は掲載後すぐに有効となります。</p>` },
+            { icon: '✉️', title: '11. お問い合わせ', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` }
+        ]
+    },
+    ko: {
+        flag: '🇰🇷', label: '한국어',
+        title: '개인정보 처리방침',
+        updated: '최종 업데이트: 2026년 4월',
+        back: 'Falling Sun으로 돌아가기',
+        sections: [
+            { icon: '👤', title: '1. 데이터 관리자', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '📊', title: '2. 수집 데이터', content: `<p>개인정보는 수집하지 않습니다. 제3자 SDK가 익명 기술 데이터를 수집합니다: 기기 모델, iOS 버전, 국가, 언어, 앱 버전, 세션 정보, 충돌 로그.</p>` },
+            { icon: '🎮', title: '3. Firebase Analytics 이벤트', content: `<p>익명 이벤트 기록: <strong>game_start</strong>, <strong>play_again</strong>, <strong>shop_opened</strong>, <strong>item_purchased</strong>, <strong>rescue_used</strong>, <strong>rescue_declined</strong>. 개인 데이터 없음.</p>` },
+            { icon: '🔥', title: '4. Firebase Crashlytics', content: `<p><strong>Firebase Crashlytics</strong>(Google LLC)로 충돌 감지. 수집: 스택 트레이스, 기기 상태, 모델, iOS 버전. 보존: <strong>90일</strong>.</p>` },
+            { icon: '🛒', title: '5. 인앱 구매', content: `<p>결제는 <strong>Apple Inc.</strong> StoreKit 2로 처리. 결제 데이터 저장 안 함.<br><a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></p>` },
+            { icon: '🌐', title: '6. 제3자 서비스', content: `<p>Firebase는 Google LLC 운영. 데이터는 미국 서버에서 처리될 수 있습니다(표준 계약 조항 사용).<br><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>` },
+            { icon: '⏱️', title: '7. 데이터 보존', content: `<p>Firebase Analytics: 최대 14개월. Crashlytics: 90일. Firebase 인스턴스 ID: 앱 삭제 시까지.</p>` },
+            { icon: '🧒', title: '8. 아동 개인정보', content: `<p>13세 미만 대상 아님. 문의: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '🚫', title: '9. 거부 및 삭제', content: `<p>설정 → 개인정보 → 추적에서 비활성화. 삭제 요청: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
+            { icon: '📝', title: '10. 정책 변경', content: `<p>본 방침은 수시로 업데이트될 수 있으며, 변경 사항은 게시 즉시 효력이 발생합니다.</p>` },
+            { icon: '✉️', title: '11. 문의', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` }
+        ]
+    }
+};
 
-    <h2>5. Contact Us</h2>
-    <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at: <em>evro89@hotmail.de</em>.</p>
+function renderPolicy(lang) {
+    document.getElementById('policyContent').innerHTML = lang.sections.map(s => `
+        <div class="section">
+            <h2><span class="icon">${s.icon}</span>${s.title}</h2>
+            ${s.content}
+        </div>
+    `).join('');
+}
 
+function toggleLang() {
+    document.getElementById('langSwitcher').classList.toggle('open');
+}
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('#langSwitcher')) {
+        document.getElementById('langSwitcher').classList.remove('open');
+    }
+});
+
+function setLang(key) {
+    const lang = LANGS[key];
+    document.getElementById('langSwitcher').classList.remove('open');
+    document.getElementById('currentFlag').textContent = lang.flag;
+    document.getElementById('currentLang').textContent = lang.label;
+    document.documentElement.lang = key;
+    document.title = `Falling Sun – ${lang.title}`;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (lang[k] !== undefined) el.innerHTML = lang[k];
+    });
+    document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.classList.toggle('active', opt.getAttribute('onclick') === `setLang('${key}')`);
+    });
+    renderPolicy(lang);
+    localStorage.setItem('fallingSunLang', key);
+}
+
+const savedLang = localStorage.getItem('fallingSunLang') || 'en';
+setLang(savedLang);
+</script>
 </body>
 </html>
