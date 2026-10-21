@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Falling Sun – Privacy Policy</title>
+    <title>Falling Planets – Privacy Policy</title>
     <style>
         :root {
             --sun: #f39c12;
@@ -212,14 +212,14 @@
 
 <header>
     <h1 data-i18n="title">Privacy Policy</h1>
-    <p data-i18n="updated">Last updated: April 2026</p>
-    <a href="https://ifinder91.github.io/falling-sun-marketing/#" class="back-link">← <span data-i18n="back">Back to Falling Sun</span></a>
+    <p data-i18n="updated">Last updated: October 2026</p>
+    <a href="https://ifinder91.github.io/falling-sun-marketing/#" class="back-link">← <span data-i18n="back">Back to Falling Planets</span></a>
 </header>
 
 <div class="container" id="policyContent"></div>
 
 <footer>
-    <p>&copy; 2026 Falling Sun · <a href="https://ifinder91.github.io/falling-sun-marketing/#">fallingsun.app</a> · <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>
+    <p>&copy; 2026 Falling Planets · <a href="https://ifinder91.github.io/falling-sun-marketing/#">Falling Planets</a> · <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>
 </footer>
 
 <script>
@@ -227,13 +227,13 @@ const LANGS = {
     en: {
         flag: '🇬🇧', label: 'EN',
         title: 'Privacy Policy',
-        updated: 'Last updated: April 2026',
-        back: 'Back to Falling Sun',
+        updated: 'Last updated: October 2026',
+        back: 'Back to Falling Planets',
         sections: [
             {
                 icon: '👤',
                 title: '1. Data Controller',
-                content: `<p>The data controller responsible for the processing of personal data in connection with the "Falling Sun" app is:</p>
+                content: `<p>The data controller responsible for the processing of personal data in connection with the "Falling Planets" app is:</p>
                 <p><strong>Evren Agsakal</strong><br>Contact: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>`
             },
             {
@@ -260,9 +260,7 @@ const LANGS = {
                     <li><strong>game_start</strong> – When the Play button is tapped</li>
                     <li><strong>play_again</strong> – When the Play Again button is tapped after game over</li>
                     <li><strong>shop_opened</strong> – When the in-game shop is opened</li>
-                    <li><strong>item_purchased</strong> – Which power-up was bought with in-game coins (not real money)</li>
-                    <li><strong>rescue_used</strong> – When a rescue item (parachute/extra life) is activated</li>
-                    <li><strong>rescue_declined</strong> – When the player chooses to give up</li>
+                    <li><strong>skin_purchased</strong> – Which planet was unlocked with in-game coins and for how many coins (not real money)</li>
                 </ul>
                 <p>These events contain no personal data. They help us understand which features players enjoy most.</p>`
             },
@@ -282,19 +280,21 @@ const LANGS = {
             {
                 icon: '🛒',
                 title: '5. In-App Purchases',
-                content: `<p>Falling Sun contains an in-app shop where power-ups can be purchased using in-game coins (earned through gameplay). The app is built with <strong>Apple StoreKit 2</strong>.</p>
+                content: `<p>Falling Planets contains an in-game shop where new planets can be unlocked with in-game coins earned through gameplay. The current version offers no purchases with real money. If coin packs are offered in a future version, all payments are processed exclusively by <strong>Apple Inc.</strong> via StoreKit 2; we never receive or store payment data.</p>
                 <p>All payment processing is handled entirely by <strong>Apple Inc.</strong> We never see or store your payment details, credit card information, or Apple ID. Apple's privacy policy applies to all transactions: <a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a>.</p>
-                <p>When a purchase event occurs, an anonymous event (<code>item_purchased</code>) is logged to Firebase Analytics containing only the item type and coin cost — no payment data.</p>`
+                <p>When a planet is unlocked, an anonymous event (<code>skin_purchased</code>) is logged to Firebase Analytics containing only the planet and its coin price — no payment data.</p>`
             },
             {
                 icon: '🌐',
                 title: '6. Third-Party Services & Data Processors',
-                content: `<p>We use the following third-party services. By using Falling Sun, you acknowledge that data may be processed by these parties in accordance with their own privacy policies:</p>
+                content: `<p>We use the following third-party services. By using Falling Planets, you acknowledge that data may be processed by these parties in accordance with their own privacy policies:</p>
                 <div class="table-wrap"><table>
                     <tr><th>Service</th><th>Provider</th><th>Purpose</th><th>Privacy Policy</th></tr>
                     <tr><td>Firebase Analytics</td><td>Google LLC</td><td>Anonymous usage analytics</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com</a></td></tr>
                     <tr><td>Firebase Crashlytics</td><td>Google LLC</td><td>Crash reporting</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com</a></td></tr>
                     <tr><td>App Store / StoreKit</td><td>Apple Inc.</td><td>In-app purchase processing</td><td><a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></td></tr>
+                    <tr><td>Game Center</td><td>Apple Inc.</td><td>Leaderboard and achievements (only if you are signed in)</td><td><a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></td></tr>
+                    <tr><td>iCloud</td><td>Apple Inc.</td><td>Syncing coins and unlocked planets between your devices</td><td><a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></td></tr>
                 </table></div>
                 <p>Firebase services are operated by Google LLC and data may be processed on servers in the United States. Google uses Standard Contractual Clauses (SCCs) as the legal safeguard for international data transfers under GDPR.</p>`
             },
@@ -328,7 +328,7 @@ const LANGS = {
             {
                 icon: '🧒',
                 title: '9. Children\'s Privacy',
-                content: `<p>Falling Sun is <strong>not directed at children under the age of 13</strong>. We do not knowingly collect personal data from children under 13. If we become aware that a child under 13 has provided us with personal information, we will take steps to delete such data.</p>
+                content: `<p>Falling Planets is <strong>not directed at children under the age of 13</strong>. We do not knowingly collect personal data from children under 13. If we become aware that a child under 13 has provided us with personal information, we will take steps to delete such data.</p>
                 <p>If you are a parent or guardian and believe your child has provided personal data, please contact us at <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>.</p>`
             },
             {
@@ -336,7 +336,7 @@ const LANGS = {
                 title: '10. Opting Out of Analytics',
                 content: `<p>You can limit data collection at any time:</p>
                 <ul>
-                    <li><strong>iOS Settings:</strong> Go to Settings → Privacy & Security → Tracking → disable tracking for Falling Sun</li>
+                    <li><strong>iOS Settings:</strong> Go to Settings → Privacy & Security → Tracking → disable tracking for Falling Planets</li>
                     <li><strong>Advertising ID Reset:</strong> Go to Settings → Privacy & Security → Apple Advertising → Reset Advertising Identifier</li>
                     <li><strong>Google Analytics Opt-Out:</strong> Visit <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a></li>
                     <li><strong>Contact Us:</strong> Email <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a> to request full data deletion from Firebase</li>
@@ -358,13 +358,13 @@ const LANGS = {
     de: {
         flag: '🇩🇪', label: 'DE',
         title: 'Datenschutzerklärung',
-        updated: 'Zuletzt aktualisiert: April 2026',
-        back: 'Zurück zu Falling Sun',
+        updated: 'Zuletzt aktualisiert: Oktober 2026',
+        back: 'Zurück zu Falling Planets',
         sections: [
             {
                 icon: '👤',
                 title: '1. Verantwortlicher',
-                content: `<p>Verantwortlicher für die Datenverarbeitung im Zusammenhang mit der App „Falling Sun" ist:</p>
+                content: `<p>Verantwortlicher für die Datenverarbeitung im Zusammenhang mit der App „Falling Planets" ist:</p>
                 <p><strong>Evren Agsakal</strong><br>Kontakt: <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>`
             },
             {
@@ -391,9 +391,7 @@ const LANGS = {
                     <li><strong>game_start</strong> – Spielstart</li>
                     <li><strong>play_again</strong> – Erneut spielen nach Game Over</li>
                     <li><strong>shop_opened</strong> – Shop geöffnet</li>
-                    <li><strong>item_purchased</strong> – Power-Up mit Spielmünzen gekauft</li>
-                    <li><strong>rescue_used</strong> – Rettungsitem (Fallschirm/Extraleben) eingesetzt</li>
-                    <li><strong>rescue_declined</strong> – Spieler hat aufgegeben</li>
+                    <li><strong>skin_purchased</strong> – Welcher Planet mit Spielmünzen freigeschaltet wurde und zu welchem Preis (kein Echtgeld)</li>
                 </ul>
                 <p>Diese Ereignisse enthalten keine personenbezogenen Daten.</p>`
             },
@@ -412,8 +410,8 @@ const LANGS = {
             {
                 icon: '🛒',
                 title: '5. In-App-Käufe',
-                content: `<p>Die App enthält einen Shop, in dem Power-Ups mit Spielmünzen gekauft werden können. Alle Zahlungen werden ausschließlich von <strong>Apple Inc.</strong> über StoreKit 2 verarbeitet. Wir erhalten und speichern keinerlei Zahlungsdaten.</p>
-                <p>Beim Kauf wird ein anonymes Ereignis (<code>item_purchased</code>) an Firebase Analytics gesendet – ohne Zahlungsinformationen.</p>`
+                content: `<p>Die App enthält einen Shop, in dem neue Planeten mit erspielten Spielmünzen freigeschaltet werden. Die aktuelle Version bietet keine Käufe mit Echtgeld an. Sollten in einer späteren Version Münzpakete angeboten werden, werden alle Zahlungen ausschließlich von <strong>Apple Inc.</strong> über StoreKit 2 verarbeitet; wir erhalten und speichern keinerlei Zahlungsdaten.</p>
+                <p>Beim Freischalten eines Planeten wird ein anonymes Ereignis (<code>skin_purchased</code>) an Firebase Analytics gesendet – nur Planet und Münzpreis, ohne Zahlungsinformationen.</p>`
             },
             {
                 icon: '🌐',
@@ -423,6 +421,8 @@ const LANGS = {
                     <tr><td>Firebase Analytics</td><td>Google LLC</td><td>Nutzungsanalyse</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com</a></td></tr>
                     <tr><td>Firebase Crashlytics</td><td>Google LLC</td><td>Absturzberichte</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com</a></td></tr>
                     <tr><td>App Store / StoreKit</td><td>Apple Inc.</td><td>Kaufabwicklung</td><td><a href="https://www.apple.com/de/legal/privacy/" target="_blank">apple.com/legal/privacy</a></td></tr>
+                    <tr><td>Game Center</td><td>Apple Inc.</td><td>Bestenliste und Erfolge (nur wenn angemeldet)</td><td><a href="https://www.apple.com/de/legal/privacy/" target="_blank">apple.com/legal/privacy</a></td></tr>
+                    <tr><td>iCloud</td><td>Apple Inc.</td><td>Abgleich von Münzen und freigeschalteten Planeten zwischen deinen Geräten</td><td><a href="https://www.apple.com/de/legal/privacy/" target="_blank">apple.com/legal/privacy</a></td></tr>
                 </table></div>
                 <p>Firebase-Dienste werden von Google LLC betrieben. Daten können auf Servern in den USA verarbeitet werden. Google verwendet Standardvertragsklauseln (SCC) als Rechtsgrundlage für internationale Datenübermittlungen gemäß DSGVO.</p>`
             },
@@ -455,14 +455,14 @@ const LANGS = {
             {
                 icon: '🧒',
                 title: '9. Datenschutz für Kinder',
-                content: `<p>Falling Sun richtet sich <strong>nicht an Kinder unter 13 Jahren</strong>. Wir erheben wissentlich keine personenbezogenen Daten von Kindern unter 13. Falls Sie als Elternteil glauben, dass Ihr Kind uns Daten übermittelt hat, kontaktieren Sie uns bitte unter <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>.</p>`
+                content: `<p>Falling Planets richtet sich <strong>nicht an Kinder unter 13 Jahren</strong>. Wir erheben wissentlich keine personenbezogenen Daten von Kindern unter 13. Falls Sie als Elternteil glauben, dass Ihr Kind uns Daten übermittelt hat, kontaktieren Sie uns bitte unter <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>.</p>`
             },
             {
                 icon: '🚫',
                 title: '10. Widerspruch & Datenlöschung',
                 content: `<p>Sie können die Datenerfassung jederzeit einschränken:</p>
                 <ul>
-                    <li><strong>iOS-Einstellungen:</strong> Einstellungen → Datenschutz & Sicherheit → Tracking → Deaktivieren für Falling Sun</li>
+                    <li><strong>iOS-Einstellungen:</strong> Einstellungen → Datenschutz & Sicherheit → Tracking → Deaktivieren für Falling Planets</li>
                     <li><strong>Werbe-ID zurücksetzen:</strong> Einstellungen → Datenschutz → Apple-Werbung → Werbe-ID zurücksetzen</li>
                     <li><strong>Datenlöschung:</strong> <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a> kontaktieren</li>
                 </ul>`
@@ -482,17 +482,17 @@ const LANGS = {
     es: {
         flag: '🇪🇸', label: 'ES',
         title: 'Política de Privacidad',
-        updated: 'Última actualización: Abril 2026',
-        back: 'Volver a Falling Sun',
+        updated: 'Última actualización: Octubre 2026',
+        back: 'Volver a Falling Planets',
         sections: [
             { icon: '👤', title: '1. Responsable del Tratamiento', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
             { icon: '📊', title: '2. Datos que Recopilamos', content: `<p>No recopilamos información personal (nombre, correo, ubicación). Sin embargo, utilizamos SDKs de terceros que recopilan datos técnicos anónimos: modelo de dispositivo, versión de iOS, país, idioma, versión de la app, duración de sesión y registros de fallos.</p>` },
-            { icon: '🎮', title: '3. Eventos de Firebase Analytics', content: `<p>Registramos los siguientes eventos de juego anónimos: <strong>game_start</strong>, <strong>play_again</strong>, <strong>shop_opened</strong>, <strong>item_purchased</strong>, <strong>rescue_used</strong>, <strong>rescue_declined</strong>. Ninguno contiene datos personales.</p>` },
+            { icon: '🎮', title: '3. Eventos de Firebase Analytics', content: `<p>Registramos los siguientes eventos de juego anónimos: <strong>game_start</strong>, <strong>play_again</strong>, <strong>shop_opened</strong>, <strong>skin_purchased</strong>. Ninguno contiene datos personales.</p>` },
             { icon: '🔥', title: '4. Firebase Crashlytics', content: `<p>Usamos <strong>Firebase Crashlytics</strong> (Google LLC) para detectar y corregir fallos. Los datos recopilados incluyen: stack trace, estado del dispositivo, modelo y versión de iOS. Se conservan durante <strong>90 días</strong>.</p>` },
-            { icon: '🛒', title: '5. Compras In-App', content: `<p>Todos los pagos son procesados por <strong>Apple Inc.</strong> mediante StoreKit 2. No almacenamos datos de pago. Solo registramos un evento anónimo en Firebase Analytics.</p>` },
+            { icon: '🛒', title: '5. Compras In-App', content: `<p>En la tienda se desbloquean planetas con monedas del juego; la versión actual no ofrece compras con dinero real. Si en el futuro se ofrecen paquetes de monedas, todos los pagos los procesa <strong>Apple Inc.</strong> mediante StoreKit 2. No almacenamos datos de pago.</p>` },
             { icon: '🌐', title: '6. Terceros', content: `<p>Firebase Analytics y Crashlytics son servicios de Google LLC. Los datos pueden procesarse en servidores de EE.UU. Google utiliza Cláusulas Contractuales Estándar como medida de protección para transferencias internacionales.<br><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>` },
             { icon: '⏱️', title: '7. Retención de Datos', content: `<p>Eventos de Firebase Analytics: hasta 14 meses. Informes de Crashlytics: 90 días. Identificador de instancia Firebase: hasta desinstalación.</p>` },
-            { icon: '🧒', title: '8. Privacidad de Menores', content: `<p>Falling Sun no está dirigida a menores de 13 años. No recopilamos datos de menores conscientemente. Contáctanos en <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a> si tienes dudas.</p>` },
+            { icon: '🧒', title: '8. Privacidad de Menores', content: `<p>Falling Planets no está dirigida a menores de 13 años. No recopilamos datos de menores conscientemente. Contáctanos en <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a> si tienes dudas.</p>` },
             { icon: '🚫', title: '9. Exclusión y Eliminación', content: `<p>Puedes desactivar el seguimiento en Ajustes → Privacidad y Seguridad → Seguimiento. Para solicitar eliminación de datos, escríbenos a <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>.</p>` },
             { icon: '📝', title: '10. Cambios en esta Política', content: `<p>Actualizaremos esta política ocasionalmente. Los cambios serán efectivos al publicarse en esta página.</p>` },
             { icon: '✉️', title: '11. Contacto', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` }
@@ -501,17 +501,17 @@ const LANGS = {
     'zh-Hans': {
         flag: '🇨🇳', label: '中文',
         title: '隐私政策',
-        updated: '最后更新：2026年4月',
-        back: '返回 Falling Sun',
+        updated: '最后更新：2026年10月',
+        back: '返回 Falling Planets',
         sections: [
             { icon: '👤', title: '1. 数据控制者', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
             { icon: '📊', title: '2. 我们收集的数据', content: `<p>我们不收集任何个人信息（姓名、电子邮件、位置等）。但应用使用第三方SDK收集有限的匿名技术数据：设备型号、iOS版本、国家/地区、语言、应用版本、会话时长及崩溃日志。</p>` },
-            { icon: '🎮', title: '3. Firebase Analytics 自定义事件', content: `<p>我们记录以下匿名游戏事件：<strong>game_start</strong>（开始游戏）、<strong>play_again</strong>（再玩一次）、<strong>shop_opened</strong>（打开商店）、<strong>item_purchased</strong>（购买道具）、<strong>rescue_used</strong>（使用救援）、<strong>rescue_declined</strong>（放弃）。这些事件不包含个人数据。</p>` },
+            { icon: '🎮', title: '3. Firebase Analytics 自定义事件', content: `<p>我们记录以下匿名游戏事件：<strong>game_start</strong>（开始游戏）、<strong>play_again</strong>（再玩一次）、<strong>shop_opened</strong>（打开商店）、<strong>skin_purchased</strong>（用金币解锁行星）。这些事件不包含个人数据。</p>` },
             { icon: '🔥', title: '4. Firebase Crashlytics', content: `<p>我们使用 <strong>Firebase Crashlytics</strong>（Google LLC）检测和修复崩溃。收集的数据包括：崩溃堆栈跟踪、设备状态、设备型号和iOS版本。数据保留 <strong>90天</strong>。</p>` },
-            { icon: '🛒', title: '5. 应用内购买', content: `<p>所有支付均由 <strong>Apple Inc.</strong> 通过 StoreKit 2 处理。我们不存储任何支付数据。购买时仅向Firebase Analytics发送一个匿名事件。</p>` },
+            { icon: '🛒', title: '5. 应用内购买', content: `<p>商店中可用游戏金币解锁行星；当前版本不提供真实货币购买。如将来提供金币包，所有支付均由 <strong>Apple Inc.</strong> 通过 StoreKit 2 处理。我们不存储任何支付数据。</p>` },
             { icon: '🌐', title: '6. 第三方服务', content: `<p>Firebase服务由Google LLC运营，数据可能在美国的服务器上处理。Google使用标准合同条款（SCC）作为国际数据传输的保障措施。<br><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>` },
             { icon: '⏱️', title: '7. 数据保留', content: `<p>Firebase Analytics事件：最长14个月。Crashlytics崩溃报告：90天。Firebase实例ID：直至卸载应用。</p>` },
-            { icon: '🧒', title: '8. 儿童隐私', content: `<p>Falling Sun不面向13岁以下儿童。如您认为儿童提供了个人数据，请联系 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>。</p>` },
+            { icon: '🧒', title: '8. 儿童隐私', content: `<p>Falling Planets不面向13岁以下儿童。如您认为儿童提供了个人数据，请联系 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>。</p>` },
             { icon: '🚫', title: '9. 退出与数据删除', content: `<p>您可以在 设置 → 隐私与安全 → 追踪 中关闭数据收集。如需删除数据，请发送邮件至 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>。</p>` },
             { icon: '📝', title: '10. 政策变更', content: `<p>我们可能会不时更新本隐私政策，更改将在本页面发布后立即生效。</p>` },
             { icon: '✉️', title: '11. 联系我们', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` }
@@ -520,17 +520,17 @@ const LANGS = {
     'zh-Hant': {
         flag: '🇹🇼', label: '繁中',
         title: '隱私權政策',
-        updated: '最後更新：2026年4月',
-        back: '返回 Falling Sun',
+        updated: '最後更新：2026年10月',
+        back: '返回 Falling Planets',
         sections: [
             { icon: '👤', title: '1. 資料控制者', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
             { icon: '📊', title: '2. 我們收集的資料', content: `<p>我們不收集任何個人資訊（姓名、電子郵件、位置等）。但應用程式使用第三方SDK收集有限的匿名技術資料：裝置型號、iOS版本、國家/地區、語言、應用程式版本、工作階段時長及當機日誌。</p>` },
-            { icon: '🎮', title: '3. Firebase Analytics 自訂事件', content: `<p>我們記錄以下匿名遊戲事件：<strong>game_start</strong>、<strong>play_again</strong>、<strong>shop_opened</strong>、<strong>item_purchased</strong>、<strong>rescue_used</strong>、<strong>rescue_declined</strong>。這些事件不包含個人資料。</p>` },
+            { icon: '🎮', title: '3. Firebase Analytics 自訂事件', content: `<p>我們記錄以下匿名遊戲事件：<strong>game_start</strong>、<strong>play_again</strong>、<strong>shop_opened</strong>、<strong>skin_purchased</strong>。這些事件不包含個人資料。</p>` },
             { icon: '🔥', title: '4. Firebase Crashlytics', content: `<p>我們使用 <strong>Firebase Crashlytics</strong>（Google LLC）偵測並修復當機。收集資料包括：堆疊追蹤、裝置狀態、型號及iOS版本。資料保留 <strong>90天</strong>。</p>` },
-            { icon: '🛒', title: '5. App 內購買', content: `<p>所有付款均由 <strong>Apple Inc.</strong> 透過 StoreKit 2 處理。我們不儲存任何付款資料。</p>` },
+            { icon: '🛒', title: '5. App 內購買', content: `<p>商店中可用遊戲金幣解鎖行星；目前版本不提供真實貨幣購買。如將來提供金幣包，所有付款均由 <strong>Apple Inc.</strong> 透過 StoreKit 2 處理。我們不儲存任何付款資料。</p>` },
             { icon: '🌐', title: '6. 第三方服務', content: `<p>Firebase服務由Google LLC營運，資料可能在美國伺服器上處理。<br><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>` },
             { icon: '⏱️', title: '7. 資料保留', content: `<p>Firebase Analytics事件：最長14個月。Crashlytics報告：90天。</p>` },
-            { icon: '🧒', title: '8. 兒童隱私', content: `<p>Falling Sun不面向13歲以下兒童。如有疑問請聯繫 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>。</p>` },
+            { icon: '🧒', title: '8. 兒童隱私', content: `<p>Falling Planets不面向13歲以下兒童。如有疑問請聯繫 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>。</p>` },
             { icon: '🚫', title: '9. 退出與資料刪除', content: `<p>請至 設定 → 隱私權與安全性 → 追蹤 關閉資料收集，或發信至 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a> 申請刪除。</p>` },
             { icon: '📝', title: '10. 政策變更', content: `<p>我們可能不時更新本隱私權政策，更改將在發布後立即生效。</p>` },
             { icon: '✉️', title: '11. 聯絡我們', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` }
@@ -539,17 +539,17 @@ const LANGS = {
     ja: {
         flag: '🇯🇵', label: '日本語',
         title: 'プライバシーポリシー',
-        updated: '最終更新：2026年4月',
-        back: 'Falling Sun に戻る',
+        updated: '最終更新：2026年10月',
+        back: 'Falling Planets に戻る',
         sections: [
             { icon: '👤', title: '1. データ管理者', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
             { icon: '📊', title: '2. 収集するデータ', content: `<p>個人情報（氏名、メールアドレス、位置情報など）は一切収集しません。ただし、サードパーティSDKにより、デバイスモデル、iOSバージョン、国、言語、アプリバージョン、セッション情報、クラッシュログなどの匿名技術データが収集されます。</p>` },
-            { icon: '🎮', title: '3. Firebase Analytics カスタムイベント', content: `<p>以下の匿名ゲームイベントを記録します：<strong>game_start</strong>、<strong>play_again</strong>、<strong>shop_opened</strong>、<strong>item_purchased</strong>、<strong>rescue_used</strong>、<strong>rescue_declined</strong>。個人データは含まれません。</p>` },
+            { icon: '🎮', title: '3. Firebase Analytics カスタムイベント', content: `<p>以下の匿名ゲームイベントを記録します：<strong>game_start</strong>、<strong>play_again</strong>、<strong>shop_opened</strong>、<strong>skin_purchased</strong>。個人データは含まれません。</p>` },
             { icon: '🔥', title: '4. Firebase Crashlytics', content: `<p><strong>Firebase Crashlytics</strong>（Google LLC）を使用してクラッシュを検出・修正します。収集データ：スタックトレース、デバイス状態、モデル、iOSバージョン。保持期間：<strong>90日間</strong>。</p>` },
-            { icon: '🛒', title: '5. アプリ内購入', content: `<p>すべての支払いは <strong>Apple Inc.</strong> のStoreKit 2により処理されます。支払いデータは保存しません。</p>` },
+            { icon: '🛒', title: '5. アプリ内購入', content: `<p>ショップではゲーム内コインで惑星を解放できます。現在のバージョンでは実際のお金での購入はありません。将来コインパックを提供する場合、すべての支払いは <strong>Apple Inc.</strong> のStoreKit 2により処理されます。支払いデータは保存しません。</p>` },
             { icon: '🌐', title: '6. サードパーティサービス', content: `<p>FirebaseサービスはGoogle LLCが運営し、データは米国サーバーで処理される場合があります。<br><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>` },
             { icon: '⏱️', title: '7. データ保持期間', content: `<p>Firebase Analyticsイベント：最大14ヶ月。Crashlyticsレポート：90日間。Firebaseインスタンスイド：アンインストールまで。</p>` },
-            { icon: '🧒', title: '8. 子どものプライバシー', content: `<p>Falling Sunは13歳未満を対象としていません。13歳未満の個人データを意図的に収集しません。ご不明な点は <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a> までご連絡ください。</p>` },
+            { icon: '🧒', title: '8. 子どものプライバシー', content: `<p>Falling Planetsは13歳未満を対象としていません。13歳未満の個人データを意図的に収集しません。ご不明な点は <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a> までご連絡ください。</p>` },
             { icon: '🚫', title: '9. オプトアウト', content: `<p>設定 → プライバシーとセキュリティ → トラッキングからデータ収集を無効にできます。データ削除のご要望は <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a> まで。</p>` },
             { icon: '📝', title: '10. ポリシーの変更', content: `<p>本ポリシーは随時更新される場合があります。変更はこのページに掲載後すぐに有効となります。</p>` },
             { icon: '✉️', title: '11. お問い合わせ', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` }
@@ -558,17 +558,17 @@ const LANGS = {
     ko: {
         flag: '🇰🇷', label: '한국어',
         title: '개인정보 처리방침',
-        updated: '최종 업데이트: 2026년 4월',
-        back: 'Falling Sun으로 돌아가기',
+        updated: '최종 업데이트: 2026년 10월',
+        back: 'Falling Planets으로 돌아가기',
         sections: [
             { icon: '👤', title: '1. 데이터 관리자', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` },
             { icon: '📊', title: '2. 수집하는 데이터', content: `<p>개인정보(이름, 이메일, 위치 등)는 수집하지 않습니다. 다만 제3자 SDK를 통해 기기 모델, iOS 버전, 국가, 언어, 앱 버전, 세션 정보, 충돌 로그 등 익명 기술 데이터가 수집됩니다.</p>` },
-            { icon: '🎮', title: '3. Firebase Analytics 커스텀 이벤트', content: `<p>다음 익명 게임 이벤트를 기록합니다: <strong>game_start</strong>, <strong>play_again</strong>, <strong>shop_opened</strong>, <strong>item_purchased</strong>, <strong>rescue_used</strong>, <strong>rescue_declined</strong>. 개인 데이터는 포함되지 않습니다.</p>` },
+            { icon: '🎮', title: '3. Firebase Analytics 커스텀 이벤트', content: `<p>다음 익명 게임 이벤트를 기록합니다: <strong>game_start</strong>, <strong>play_again</strong>, <strong>shop_opened</strong>, <strong>skin_purchased</strong>. 개인 데이터는 포함되지 않습니다.</p>` },
             { icon: '🔥', title: '4. Firebase Crashlytics', content: `<p><strong>Firebase Crashlytics</strong>(Google LLC)를 사용해 충돌을 감지하고 수정합니다. 수집 데이터: 스택 트레이스, 기기 상태, 모델, iOS 버전. 보존 기간: <strong>90일</strong>.</p>` },
-            { icon: '🛒', title: '5. 인앱 구매', content: `<p>모든 결제는 <strong>Apple Inc.</strong>의 StoreKit 2를 통해 처리됩니다. 결제 데이터는 저장하지 않습니다.</p>` },
+            { icon: '🛒', title: '5. 인앱 구매', content: `<p>상점에서는 게임 코인으로 행성을 해제합니다. 현재 버전에는 실제 돈으로 하는 구매가 없습니다. 향후 코인 패키지를 제공하는 경우 모든 결제는 <strong>Apple Inc.</strong>의 StoreKit 2를 통해 처리됩니다. 결제 데이터는 저장하지 않습니다.</p>` },
             { icon: '🌐', title: '6. 제3자 서비스', content: `<p>Firebase 서비스는 Google LLC가 운영하며 데이터는 미국 서버에서 처리될 수 있습니다.<br><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>` },
             { icon: '⏱️', title: '7. 데이터 보존 기간', content: `<p>Firebase Analytics 이벤트: 최대 14개월. Crashlytics 보고서: 90일. Firebase 인스턴스 ID: 앱 삭제 시까지.</p>` },
-            { icon: '🧒', title: '8. 아동 개인정보 보호', content: `<p>Falling Sun은 13세 미만을 대상으로 하지 않습니다. 관련 문의는 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>로 연락주세요.</p>` },
+            { icon: '🧒', title: '8. 아동 개인정보 보호', content: `<p>Falling Planets은 13세 미만을 대상으로 하지 않습니다. 관련 문의는 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>로 연락주세요.</p>` },
             { icon: '🚫', title: '9. 거부 및 삭제', content: `<p>설정 → 개인정보 보호 및 보안 → 추적에서 데이터 수집을 비활성화할 수 있습니다. 데이터 삭제 요청은 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a>로 보내주세요.</p>` },
             { icon: '📝', title: '10. 정책 변경', content: `<p>본 방침은 수시로 업데이트될 수 있으며, 변경 사항은 이 페이지에 게시 즉시 효력이 발생합니다.</p>` },
             { icon: '✉️', title: '11. 문의', content: `<p><strong>Evren Agsakal</strong><br>📧 <a href="mailto:evro89@hotmail.de">evro89@hotmail.de</a></p>` }
@@ -604,7 +604,7 @@ function setLang(key) {
     document.getElementById('currentFlag').textContent = lang.flag;
     document.getElementById('currentLang').textContent = lang.label;
     document.documentElement.lang = key;
-    document.title = `Falling Sun – ${lang.title}`;
+    document.title = `Falling Planets – ${lang.title}`;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const k = el.getAttribute('data-i18n');
